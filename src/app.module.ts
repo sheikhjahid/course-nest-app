@@ -4,8 +4,6 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { ReportModule } from './report/report.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './user/user.entity';
-import { Report } from './report/report.entity';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { dataSourceOptions } from '../db/data-source';
 import { APP_PIPE } from '@nestjs/core';
