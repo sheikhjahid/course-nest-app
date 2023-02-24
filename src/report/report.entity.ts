@@ -1,5 +1,11 @@
 import { User } from 'src/user/user.entity';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 
 @Entity()
 export class Report {
@@ -18,6 +24,7 @@ export class Report {
   @Column({ default: false })
   approved: boolean;
 
-  @ManyToOne(() => User, (user) => user.reports)
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'userId', referencedColumnName: 'id' })
   user: User;
 }

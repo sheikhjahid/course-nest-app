@@ -1,5 +1,12 @@
+import { Expose } from 'class-transformer';
 import { Report } from 'src/report/report.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  JoinColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
@@ -15,6 +22,7 @@ export class User {
   @Column({ default: false })
   admin: boolean;
 
-  @OneToMany(() => Report, (reports) => reports.user)
+  @OneToMany(() => Report, (report) => report.user)
+  @JoinColumn()
   reports: Report[];
 }
